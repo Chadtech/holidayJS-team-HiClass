@@ -27,60 +27,13 @@ function saveImage(ImageRef,hitbox) {
     firebase.push({filePayload:imgString, hitbox:hitbox})
 }
 
-function loadImage(selectedImage){
-    $('#spin').append(spinner);
-
-    spinner.spin(document.getElementById('spin'));
-    var f = new Firebase(imagesRef + 'images/' + selectedImage );
+function getListOfImages(){
+    var f = new Firebase(imagesRef);
     f.once('value', function(snap) {
         var payload = snap.val();
-        if (payload != null) {
-            //FIXME: convert the recovered image into an actual image?
-            return payload;
-        }
-        spinner.stop();
+        console.log(payload);
+        return payload
     });
-}
-
-function getBase64FromImageUrl(URL) {
-    var img = new Image();
-    img.src = URL;
-    img.onload = function () {
-
-
-        var canvas = document.createElement("canvas");
-        canvas.width =this.width;
-        canvas.height =this.height;
-
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(this, 0, 0);
-
-
-        var dataURL = canvas.toDataURL("image/png");
-
-        //alert(  dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
-
-        return dataURL;
-    }
-}
-
-function getListOfImages(){
-    new Firebase(imagesRef).once(
-        'value',
-        function(dataSnapshot){
-
-            // Then I need to loop over all elements to extract ids !
-            var videoIdIndex = 0;
-            var videoIds = new Array();
-
-            dataSnapshot.forEach(
-                function(childSnapshot) {
-                    videoIds[videoIdIndex++] = childSnapshot.name();
-                }
-            );
-
-        }
-    );
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
