@@ -7,10 +7,21 @@ audioContext = new AudioContext
 
 {a, p, div, input} = React.DOM
 
-App = React.createFactory AppClass
+AppClass = React.createClass
 
-ctdpnqptfs = new App
-  project: project
+App = React.createFactory AppClass
+  render: ->
+    div {},
+      div {className: 'spacer'}
+      div {className: 'indent'},
+        div {className: 'container'},
+          div {className: 'row'},
+            p
+              className: 'point'
+              'HELLO'
+
+whereIsDickButt = new App
 
 element = document.getElementById 'content'
-React.render ctdpnqptfs, element
+React.render whereIsDickButt, element
+
