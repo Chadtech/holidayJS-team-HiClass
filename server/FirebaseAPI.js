@@ -31,13 +31,12 @@ function loadImage(selectedImage){
     $('#spin').append(spinner);
 
     spinner.spin(document.getElementById('spin'));
-    var f = new Firebase(imagesRef + selectedImage + '/filePayload');
+    var f = new Firebase(imagesRef + 'images/' + selectedImage );
     f.once('value', function(snap) {
         var payload = snap.val();
         if (payload != null) {
-            document.getElementById("pano").src = payload;
-        } else {
-            $('#body').append("Not found");
+            //FIXME: convert the recovered image into an actual image?
+            return payload;
         }
         spinner.stop();
     });
