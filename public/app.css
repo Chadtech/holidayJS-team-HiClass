@@ -59,6 +59,11 @@ body {
 .break {
   height: 1em;
 }
+.dickbutt {
+  width: 200px;
+  height: 200px;
+  background: #c0c0c0;
+}
 .alive {
   background: url("checkboxTrue.png");
   width: 185px;
