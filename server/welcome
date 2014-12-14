@@ -1,0 +1,16 @@
+HTML:
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<img id="img1" src="https://raw.githubusercontent.com/Chadtech/holidayJS-team-HiClass/master/public/img/Logo1.png" alt="" width="0" height="0" style="margin-left:100px"/> 
+<img id="img2" src="https://raw.githubusercontent.com/Chadtech/holidayJS-team-HiClass/master/public/img/Logo2.png" alt="" width="0" height="0" style="margin-left:100px"/> 
+<img id="img3" src="https://raw.githubusercontent.com/Chadtech/holidayJS-team-HiClass/master/public/img/Logo3.png" alt="" width="0" height="0" style="margin-left:100px"/>
+<img id="img4" src="https://raw.githubusercontent.com/Chadtech/holidayJS-team-HiClass/master/public/img/Logo4.png" alt="" width="400" height="400" style="margin-left:100px"/> 
+
+JS:	
+TweenLite.to($("#img1"), 1.5, {width:400, height:400, delay:2});
+TweenLite.to($("#img2"), 1.5, {width:400, height:400, delay:4});
+TweenLite.to($("#img3"), 1.5, {width:400, height:400, delay:6});
+TweenLite.to($("#img4"), 0, {autoAlpha:0});
+TweenLite.to($("#img4"), 1, {autoAlpha:5, delay:8});
+
+CSS:
+img{position: absolute;}
